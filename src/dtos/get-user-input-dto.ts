@@ -1,4 +1,4 @@
-export default interface ControllerGetUserInputDto {
+export default interface GetUserInputDto {
     name: string;
     email: string;
     adress: string;

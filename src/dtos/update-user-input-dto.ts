@@ -1,4 +1,4 @@
-export default interface ControllerUpdateUserInputDto {
+export default interface UpdateUserInputDto {
     name: string;
     email: string;
     adress: string;

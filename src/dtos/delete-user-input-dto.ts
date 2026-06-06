@@ -1,4 +1,4 @@
-export default interface ControllerDeleteUserInputDto {
+export default interface DeleteUserInputDto {
     name: string;
     email: string;
     adress: string;

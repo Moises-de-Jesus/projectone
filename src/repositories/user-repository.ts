@@ -1,24 +1,23 @@
-import ServiceCreateUserInputDto from '../services/dtos/input/service-create-user-input-dto.js';
-import ServiceGetUserInputDto from '../services/dtos/input/service-get-user-input-dto.js';
-import ServiceUpdateUserInputDto from '../services/dtos/input/service-update-user-input-dto.js';
-import ServiceDeleteUserInputDto from '../services/dtos/input/service-delete-user-input-dto.js';
+import CreateUserInputDto from '../dtos/create-user-input-dto.js';
+import DeleteUserInputDto from '../dtos/delete-user-input-dto.js';
+import GetUserInputDto from '../dtos/get-user-input-dto.js';
+import UpdateUserInputDto from '../dtos/update-user-input-dto.js';
 import {prisma} from "../prisma/prisma.js"
-import { isDbNull, itxClientDenyList } from '@prisma/client/runtime/client';
 
 export default class UserRepository {
-    async getAllUserbyId(id: number){
+    async getAllUserById(id: number){
         const user = await prisma.user.findMany({
             where: {id: id}
         })
         return user
     }
-    async getAllUserbyEmail(email: string){
+    async getAllUserByEmail(email: string){
         const user = await prisma.user.findMany({
             where: {email: email}
         })
         return user
     }
-    async getAllUserbyName(name: string){
+    async getAllUserByName(name: string){
         const user = await prisma.user.findMany({
             where: {name: name}
         })
@@ -42,13 +41,13 @@ export default class UserRepository {
         })
         return user
     }
-    async createUser(input: ServiceCreateUserInputDto){
+    async createUser(input: CreateUserInputDto){
         const user = await prisma.user.create({
             data: input
         })
         return user
     }
-    async updateUserById(id: number, input: ServiceUpdateUserInputDto){
+    async updateUserById(id: number, input: UpdateUserInputDto){
         const user = await prisma.user.update({
             where: {
                 id: id
