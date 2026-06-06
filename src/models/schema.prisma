@@ -17,7 +17,7 @@ model User {
   name  String
   email String  @unique
   adress String
-  Age Int
-  State String
-  City String
+  age Int
+  state String
+  city String
 } 
