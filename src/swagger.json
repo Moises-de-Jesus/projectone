@@ -1,0 +1,134 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API-projectone",
+    "description": "API criada para aprendizado dos príncipios básicos de back end. Possui rotas para CRUD em banco de dados sqlite",
+    "contact": {
+      "email":"moises.de.jesus.profissional@gmail.com"
+    },
+    "version": "1.0.0"
+  },
+  "servers":[
+    {
+      "url": "http://localhost:3000/clientes",
+      "description": "API para testes locais"
+    }
+  ],
+  "paths": {
+    "/name/{nome}": {
+      "get": {
+        "summary":"Retorna todos os usuários por nome",
+        "description": "Envia uma array de json's de todos os usuários cadastrados que contêm o nome fornecido na url",
+        "tags":["User"]
+      }
+    },
+    "/email/{email}": {
+      "get": {
+        "summary":"Retorna todos os usuários por email",
+        "description": "Envia uma array de json's de todos os usuários cadastrados que contêm o email fornecido na url",
+        "tags":["User"]
+      }
+    },
+    "/id/{id}": {
+      "get":{
+        "summary":"Retorna todos os usuários por id",
+        "description": "Envia uma array de json's de todos os usuários cadastrados que contêm o id fornecido na url",
+        "tags":["User"]
+      }
+    },
+    "/add":{
+      "post":{
+        "summary":"Cria um usuário",
+        "description": "A partir de um corpo http, cria um usuário em um banco de dados sql",
+        "tags":["User"],
+        "requestBody":{
+          "content":{
+            "application/json":{
+              "schema":{
+                "$ref": "#/components/schemas/User"
+              },"examples":{
+                "usuario1":{
+                  "value":{
+                    "name": "Joao gomes",
+                    "email": "joaogomes33333@gmail.com",
+                    "adress": "jjsj*338338",
+                    "age": 23,
+                    "state": "Bahia",
+                    "city": "Salvador",
+                    "id": 1
+                }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/change":{
+      "put":{
+        "summary":"Atualiza um usuário",
+        "description": "A partir de um corpo http e seu id, analisa se o email não existe no banco e se o id existe no banco, caso ambos os casos ocorram, atualiza o usuário com o mesmo id em um banco de dados sql",
+        "tags":["User"],
+        "requestBody":{
+          "content":{
+            "application/json":{
+              "schema":{
+                "$ref": "#/components/schemas/User"
+              },"examples":{
+                "usuario1":{
+                  "value":{
+                    "name": "Joao gomes",
+                    "email": "joaogomes33333@gmail.com",
+                    "adress": "jjsj*338338",
+                    "age": 23,
+                    "state": "Bahia",
+                    "city": "Salvador",
+                    "id": 1
+                }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/delete/{id}":{
+      "delete":{
+        "summary":"Deleta um usuário pelo id",
+        "description": "Deleta um usuário a partir do id fornecido na url",
+        "tags":["User"]
+      }
+    }
+  },
+    "components":{
+      "schemas":{
+        "User":{
+          "type": "object",
+          "properties":{
+            "name": {
+              "type":"string"
+            },
+            "email": {
+              "type":"string"
+            },
+            "adress": {
+              "type":"string"
+            },
+            "age": {
+              "type":"integer"
+            },
+            "state": {
+              "type":"string"
+            },
+            "city": {
+              "type":"string"
+            },
+            "id": {
+              "type":"integer"
+            }
+            
+          }
+        }
+      }
+    }
+}
