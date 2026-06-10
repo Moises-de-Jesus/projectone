@@ -23,27 +23,21 @@ export default class UserRepository {
         })
         return user
     }
-    async getUserId(id: number){
+    async getUserById(id: number){
         const user = await prisma.user.findUnique({
-            where: {id: id},
-            select: {
-                id: true
-            }
+            where: {id: id}
         })
         return user
     }
-    async getUserEmail(email: string){
+    async getUserByEmail(email: string){
         const user = await prisma.user.findUnique({
-            where: {email: email},
-            select: {
-                email: true
-            }
+            where: {email: email}
         })
         return user
     }
-    async SearchUser(email: string, adress: string){
+    async SearchUser(email: string, address: string){
         const user = await prisma.user.findUnique({
-            where: {email: email, adress: adress},
+            where: {email: email, address: address},
         })
         return user
     }

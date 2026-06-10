@@ -5,6 +5,7 @@ import DeleteUserInputDto from '../dtos/delete-user-input-dto.js';
 import GetUserInputDto from '../dtos/get-user-input-dto.js';
 import UpdateUserInputDto from '../dtos/update-user-input-dto.js';
 import jwt from 'jsonwebtoken'
+import bcrypt from 'bcryptjs'
 
 const userRepository = new UserRepository()
 
@@ -32,8 +33,10 @@ export default class UserService {
     }
     async createUser(input: CreateUserInputDto){
         if (input.email){
-            const user = await userRepository.getUserEmail(input.email)
+            const user = await userRepository.getUserByEmail(input.email)
             if (!user){
+                const hash=await bcrypt.hash(input.address, 10)
+                input.address=hash
                 await userRepository.createUser(input)
                 return "Adicionado"
             }
@@ -42,8 +45,8 @@ export default class UserService {
         return "requisição está sem corpo ou com corpo incompleto"
     }
     async updateUserById(input: UpdateUserInputDto){
-        const hasEmail=await userRepository.getUserEmail(input.email)
-        const hasId=await userRepository.getUserId(input.id)
+        const hasEmail=await userRepository.getUserByEmail(input.email)
+        const hasId=await userRepository.getUserById(input.id)
         if (!hasEmail && hasId){
             await userRepository.updateUserById(Number(input.id), input)
             return "Atualizado"
@@ -66,8 +69,8 @@ export default class UserService {
         return {resposta: result}
     }
     async login(input: CreateUserInputDto){
-        const user = await userRepository.SearchUser(input.email, input.adress)
-        if (user){
+        const user = await userRepository.getUserByEmail(input.email)
+        if (user && await bcrypt.compare(input.address, user.address)) {
             const token = jwt.sign({ name: user.name}, process.env.JWT_SECRET as string, { expiresIn: '1h' })
             return { resposta: "Login bem sucedido", token: token }
         }

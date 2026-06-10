@@ -12,7 +12,7 @@ export default class UserController {
         const output = await this.userService.getUserByName({
             name: String(req.params.name),
             email: "",
-            adress: "",
+            address: "",
             age: 0,
             state: "",
             city: "",
@@ -24,7 +24,7 @@ export default class UserController {
         const output = await this.userService.getUserByEmail({
             name: "",
             email: String(req.params.email),
-            adress: "",
+            address: "",
             age: 0,
             state: "",
             city: "",
@@ -36,7 +36,7 @@ export default class UserController {
         const output = await this.userService.getUserById({
             name: "",
             email: "",
-            adress: "",
+            address: "",
             age: 0,
             state: "",
             city: "",
@@ -48,7 +48,7 @@ export default class UserController {
         const output = await this.userService.createUser({
             name: String(req.body.name),
             email: String(req.body.email),
-            adress: String(req.body.adress),
+            address: String(req.body.adress),
             age: Number(req.body.age),
             state: String(req.body.state),
             city: String(req.body.city)
@@ -59,7 +59,7 @@ export default class UserController {
         const output = await this.userService.updateUserById({
             name: String(req.body.name),
             email: String(req.body.email),
-            adress: String(req.body.adress),
+            address: String(req.body.adress),
             age: Number(req.body.age),
             state: String(req.body.state),
             city: String(req.body.city),
@@ -71,7 +71,7 @@ export default class UserController {
         const output = await this.userService.deleteUserById({
             name: "",
             email: "",
-            adress: "",
+            address: "",
             age: 0,
             state: "",
             city: "",
@@ -83,7 +83,7 @@ export default class UserController {
         const output = await this.userService.register({
             name: String(req.body.name),
             email: String(req.body.email),
-            adress: String(req.body.adress),
+            address: String(req.body.adress),
             age: Number(req.body.age),
             state: String(req.body.state),
             city: String(req.body.city)
@@ -94,7 +94,7 @@ export default class UserController {
         const output = await this.userService.login({
             name: String(req.body.name),
             email: String(req.body.email),
-            adress: String(req.body.adress),
+            address: String(req.body.adress),
             age: Number(req.body.age),
             state: String(req.body.state),
             city: String(req.body.city)

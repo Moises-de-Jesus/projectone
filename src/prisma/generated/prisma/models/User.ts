@@ -40,7 +40,7 @@ export type UserMinAggregateOutputType = {
   id: number | null
   name: string | null
   email: string | null
-  adress: string | null
+  address: string | null
   age: number | null
   state: string | null
   city: string | null
@@ -50,7 +50,7 @@ export type UserMaxAggregateOutputType = {
   id: number | null
   name: string | null
   email: string | null
-  adress: string | null
+  address: string | null
   age: number | null
   state: string | null
   city: string | null
@@ -60,7 +60,7 @@ export type UserCountAggregateOutputType = {
   id: number
   name: number
   email: number
-  adress: number
+  address: number
   age: number
   state: number
   city: number
@@ -82,7 +82,7 @@ export type UserMinAggregateInputType = {
   id?: true
   name?: true
   email?: true
-  adress?: true
+  address?: true
   age?: true
   state?: true
   city?: true
@@ -92,7 +92,7 @@ export type UserMaxAggregateInputType = {
   id?: true
   name?: true
   email?: true
-  adress?: true
+  address?: true
   age?: true
   state?: true
   city?: true
@@ -102,7 +102,7 @@ export type UserCountAggregateInputType = {
   id?: true
   name?: true
   email?: true
-  adress?: true
+  address?: true
   age?: true
   state?: true
   city?: true
@@ -199,7 +199,7 @@ export type UserGroupByOutputType = {
   id: number
   name: string
   email: string
-  adress: string
+  address: string
   age: number
   state: string
   city: string
@@ -232,7 +232,7 @@ export type UserWhereInput = {
   id?: Prisma.IntFilter<"User"> | number
   name?: Prisma.StringFilter<"User"> | string
   email?: Prisma.StringFilter<"User"> | string
-  adress?: Prisma.StringFilter<"User"> | string
+  address?: Prisma.StringFilter<"User"> | string
   age?: Prisma.IntFilter<"User"> | number
   state?: Prisma.StringFilter<"User"> | string
   city?: Prisma.StringFilter<"User"> | string
@@ -242,7 +242,7 @@ export type UserOrderByWithRelationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   email?: Prisma.SortOrder
-  adress?: Prisma.SortOrder
+  address?: Prisma.SortOrder
   age?: Prisma.SortOrder
   state?: Prisma.SortOrder
   city?: Prisma.SortOrder
@@ -255,7 +255,7 @@ export type UserWhereUniqueInput = Prisma.AtLeast<{
   OR?: Prisma.UserWhereInput[]
   NOT?: Prisma.UserWhereInput | Prisma.UserWhereInput[]
   name?: Prisma.StringFilter<"User"> | string
-  adress?: Prisma.StringFilter<"User"> | string
+  address?: Prisma.StringFilter<"User"> | string
   age?: Prisma.IntFilter<"User"> | number
   state?: Prisma.StringFilter<"User"> | string
   city?: Prisma.StringFilter<"User"> | string
@@ -265,7 +265,7 @@ export type UserOrderByWithAggregationInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   email?: Prisma.SortOrder
-  adress?: Prisma.SortOrder
+  address?: Prisma.SortOrder
   age?: Prisma.SortOrder
   state?: Prisma.SortOrder
   city?: Prisma.SortOrder
@@ -283,7 +283,7 @@ export type UserScalarWhereWithAggregatesInput = {
   id?: Prisma.IntWithAggregatesFilter<"User"> | number
   name?: Prisma.StringWithAggregatesFilter<"User"> | string
   email?: Prisma.StringWithAggregatesFilter<"User"> | string
-  adress?: Prisma.StringWithAggregatesFilter<"User"> | string
+  address?: Prisma.StringWithAggregatesFilter<"User"> | string
   age?: Prisma.IntWithAggregatesFilter<"User"> | number
   state?: Prisma.StringWithAggregatesFilter<"User"> | string
   city?: Prisma.StringWithAggregatesFilter<"User"> | string
@@ -292,7 +292,7 @@ export type UserScalarWhereWithAggregatesInput = {
 export type UserCreateInput = {
   name: string
   email: string
-  adress: string
+  address: string
   age: number
   state: string
   city: string
@@ -302,7 +302,7 @@ export type UserUncheckedCreateInput = {
   id?: number
   name: string
   email: string
-  adress: string
+  address: string
   age: number
   state: string
   city: string
@@ -311,7 +311,7 @@ export type UserUncheckedCreateInput = {
 export type UserUpdateInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  adress?: Prisma.StringFieldUpdateOperationsInput | string
+  address?: Prisma.StringFieldUpdateOperationsInput | string
   age?: Prisma.IntFieldUpdateOperationsInput | number
   state?: Prisma.StringFieldUpdateOperationsInput | string
   city?: Prisma.StringFieldUpdateOperationsInput | string
@@ -321,7 +321,7 @@ export type UserUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  adress?: Prisma.StringFieldUpdateOperationsInput | string
+  address?: Prisma.StringFieldUpdateOperationsInput | string
   age?: Prisma.IntFieldUpdateOperationsInput | number
   state?: Prisma.StringFieldUpdateOperationsInput | string
   city?: Prisma.StringFieldUpdateOperationsInput | string
@@ -331,7 +331,7 @@ export type UserCreateManyInput = {
   id?: number
   name: string
   email: string
-  adress: string
+  address: string
   age: number
   state: string
   city: string
@@ -340,7 +340,7 @@ export type UserCreateManyInput = {
 export type UserUpdateManyMutationInput = {
   name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  adress?: Prisma.StringFieldUpdateOperationsInput | string
+  address?: Prisma.StringFieldUpdateOperationsInput | string
   age?: Prisma.IntFieldUpdateOperationsInput | number
   state?: Prisma.StringFieldUpdateOperationsInput | string
   city?: Prisma.StringFieldUpdateOperationsInput | string
@@ -350,7 +350,7 @@ export type UserUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   name?: Prisma.StringFieldUpdateOperationsInput | string
   email?: Prisma.StringFieldUpdateOperationsInput | string
-  adress?: Prisma.StringFieldUpdateOperationsInput | string
+  address?: Prisma.StringFieldUpdateOperationsInput | string
   age?: Prisma.IntFieldUpdateOperationsInput | number
   state?: Prisma.StringFieldUpdateOperationsInput | string
   city?: Prisma.StringFieldUpdateOperationsInput | string
@@ -360,7 +360,7 @@ export type UserCountOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   email?: Prisma.SortOrder
-  adress?: Prisma.SortOrder
+  address?: Prisma.SortOrder
   age?: Prisma.SortOrder
   state?: Prisma.SortOrder
   city?: Prisma.SortOrder
@@ -375,7 +375,7 @@ export type UserMaxOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   email?: Prisma.SortOrder
-  adress?: Prisma.SortOrder
+  address?: Prisma.SortOrder
   age?: Prisma.SortOrder
   state?: Prisma.SortOrder
   city?: Prisma.SortOrder
@@ -385,7 +385,7 @@ export type UserMinOrderByAggregateInput = {
   id?: Prisma.SortOrder
   name?: Prisma.SortOrder
   email?: Prisma.SortOrder
-  adress?: Prisma.SortOrder
+  address?: Prisma.SortOrder
   age?: Prisma.SortOrder
   state?: Prisma.SortOrder
   city?: Prisma.SortOrder
@@ -414,7 +414,7 @@ export type UserSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = r
   id?: boolean
   name?: boolean
   email?: boolean
-  adress?: boolean
+  address?: boolean
   age?: boolean
   state?: boolean
   city?: boolean
@@ -424,7 +424,7 @@ export type UserSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   id?: boolean
   name?: boolean
   email?: boolean
-  adress?: boolean
+  address?: boolean
   age?: boolean
   state?: boolean
   city?: boolean
@@ -434,7 +434,7 @@ export type UserSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensio
   id?: boolean
   name?: boolean
   email?: boolean
-  adress?: boolean
+  address?: boolean
   age?: boolean
   state?: boolean
   city?: boolean
@@ -444,13 +444,13 @@ export type UserSelectScalar = {
   id?: boolean
   name?: boolean
   email?: boolean
-  adress?: boolean
+  address?: boolean
   age?: boolean
   state?: boolean
   city?: boolean
 }
 
-export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "email" | "adress" | "age" | "state" | "city", ExtArgs["result"]["user"]>
+export type UserOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "name" | "email" | "address" | "age" | "state" | "city", ExtArgs["result"]["user"]>
 
 export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "User"
@@ -459,7 +459,7 @@ export type $UserPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs =
     id: number
     name: string
     email: string
-    adress: string
+    address: string
     age: number
     state: string
     city: string
@@ -889,7 +889,7 @@ export interface UserFieldRefs {
   readonly id: Prisma.FieldRef<"User", 'Int'>
   readonly name: Prisma.FieldRef<"User", 'String'>
   readonly email: Prisma.FieldRef<"User", 'String'>
-  readonly adress: Prisma.FieldRef<"User", 'String'>
+  readonly address: Prisma.FieldRef<"User", 'String'>
   readonly age: Prisma.FieldRef<"User", 'Int'>
   readonly state: Prisma.FieldRef<"User", 'String'>
   readonly city: Prisma.FieldRef<"User", 'String'>

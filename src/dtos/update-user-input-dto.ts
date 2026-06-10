@@ -1,7 +1,7 @@
 export default interface UpdateUserInputDto {
     name: string;
     email: string;
-    adress: string;
+    address: string;
     age: number;
     state: string;
     city: string;
