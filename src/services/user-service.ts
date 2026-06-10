@@ -4,6 +4,7 @@ import CreateUserInputDto from '../dtos/create-user-input-dto.js';
 import DeleteUserInputDto from '../dtos/delete-user-input-dto.js';
 import GetUserInputDto from '../dtos/get-user-input-dto.js';
 import UpdateUserInputDto from '../dtos/update-user-input-dto.js';
+import jwt from 'jsonwebtoken'
 
 const userRepository = new UserRepository()
 
@@ -55,5 +56,24 @@ export default class UserService {
             return "Deletado"
         }
         return "ID não consta"
+    }
+    async register(input: CreateUserInputDto){
+        const result = await this.createUser(input)
+        if (result === "Adicionado") {
+            const token = jwt.sign({ name: input.name}, process.env.JWT_SECRET as string, { expiresIn: '1h' })
+            return { resposta: result, token: token }
+        }
+        return {resposta: result}
+    }
+    async login(input: CreateUserInputDto){
+        const user = await userRepository.SearchUser(input.email, input.adress)
+        if (user){
+            const token = jwt.sign({ name: user.name}, process.env.JWT_SECRET as string, { expiresIn: '1h' })
+            return { resposta: "Login bem sucedido", token: token }
+        }
+        return { resposta: "Email ou senha incorretos" }
+    }
+    async logout(){
+        return {message: "Logout bem sucedido"}
     }
 }

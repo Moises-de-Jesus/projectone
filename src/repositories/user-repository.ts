@@ -41,6 +41,12 @@ export default class UserRepository {
         })
         return user
     }
+    async SearchUser(email: string, adress: string){
+        const user = await prisma.user.findUnique({
+            where: {email: email, adress: adress},
+        })
+        return user
+    }
     async createUser(input: CreateUserInputDto){
         const user = await prisma.user.create({
             data: input

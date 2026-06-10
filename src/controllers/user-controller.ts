@@ -18,7 +18,7 @@ export default class UserController {
             city: "",
             id: 0
         })
-        res.json(output)    
+        return res.json(output)    
     }
     async getAllUserByEmail(req: Request, res: Response){
         const output = await this.userService.getUserByEmail({
@@ -30,7 +30,7 @@ export default class UserController {
             city: "",
             id: 0
         })
-        res.json(output)    
+        return res.json(output)    
     }
     async getAllUserById(req: Request, res: Response){
         const output = await this.userService.getUserById({
@@ -42,7 +42,7 @@ export default class UserController {
             city: "",
             id: Number(req.params.id)
         })
-        res.json(output)    
+        return res.json(output)    
     }
     async createUser(req: Request, res: Response){
         const output = await this.userService.createUser({
@@ -53,7 +53,7 @@ export default class UserController {
             state: String(req.body.state),
             city: String(req.body.city)
         })
-        res.send(output)
+        return res.send(output)
     }
     async updateUserById(req: Request, res: Response){
         const output = await this.userService.updateUserById({
@@ -65,7 +65,7 @@ export default class UserController {
             city: String(req.body.city),
             id: Number(req.params.id)
         })
-        res.send(output)
+        return res.send(output)
     }
     async deleteUserById(req: Request, res: Response){
         const output = await this.userService.deleteUserById({
@@ -77,6 +77,32 @@ export default class UserController {
             city: "",
             id: Number(req.params.id)
         })
-        res.send(output)
+        return res.send(output)
+    }
+    async register(req: Request, res: Response){
+        const output = await this.userService.register({
+            name: String(req.body.name),
+            email: String(req.body.email),
+            adress: String(req.body.adress),
+            age: Number(req.body.age),
+            state: String(req.body.state),
+            city: String(req.body.city)
+        })
+        return res.send(output)
+    }
+    async login(req: Request, res: Response){
+        const output = await this.userService.login({
+            name: String(req.body.name),
+            email: String(req.body.email),
+            adress: String(req.body.adress),
+            age: Number(req.body.age),
+            state: String(req.body.state),
+            city: String(req.body.city)
+        })
+        return res.send(output)
+    }
+    async logout(req: Request, res: Response){
+        const output = await this.userService.logout()
+        return res.send(output)
     }
 }
