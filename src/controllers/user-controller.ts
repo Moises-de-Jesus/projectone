@@ -5,6 +5,7 @@ import GetUserInputDto from '../dtos/get-user-input-dto.js';
 import UpdateUserInputDto from '../dtos/update-user-input-dto.js';
 import UserService from '../services/user-service.js'
 
+
 export default class UserController {
     private userService: UserService=new UserService()
 
@@ -18,7 +19,7 @@ export default class UserController {
             city: "",
             id: 0
         })
-        return res.json(output)    
+        return res.json(output)
     }
     async getAllUserByEmail(req: Request, res: Response){
         const output = await this.userService.getUserByEmail({
